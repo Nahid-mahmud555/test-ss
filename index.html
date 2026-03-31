@@ -1,10 +1,10 @@
-Here is the HTML code that adds a simple JavaScript function to switch between the "Mission" and "Guardian" tabs when clicked.
+Here is the HTML code that centers the "Focus Pilot Pro" interface perfectly in the middle of the browser window with a polished, balanced layout.
 ```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Focus Pilot Pro — Dual Interface</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
     <style>
@@ -43,16 +43,18 @@ Here is the HTML code that adds a simple JavaScript function to switch between t
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: radial-gradient(circle at 50% 0%, #0f172a 0%, #020617 100%);
             color: var(--text);
+            /* PERFECT CENTERING - FLEXBOX MASTER */
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 60px 20px;
+            padding: 40px 24px;
             overflow-x: hidden;
+            overflow-y: auto;
             line-height: 1.6;
             position: relative;
         }
 
-        /* Aurora Background Effects */
+        /* Aurora Background Effects - keeps the magical vibe */
         body::before, body::after {
             content: '';
             position: fixed;
@@ -84,22 +86,46 @@ Here is the HTML code that adds a simple JavaScript function to switch between t
             100% { transform: translate(100px, 100px) scale(1.3) rotate(30deg); }
         }
 
+        /* MAIN CONTAINER - PERFECTLY CENTERED WITH RESPONSIVE WIDTH */
         .container {
-            width: 500px;
+            width: 100%;
+            max-width: 580px;
+            margin: 0 auto;
             background: var(--card);
             backdrop-filter: blur(32px);
             -webkit-backdrop-filter: blur(32px);
             border-radius: var(--radius-lg);
-            padding: 48px;
+            padding: 48px 40px;
             border: 1px solid var(--border);
             position: relative;
             box-shadow: var(--shadow-lg), 
                         0 0 80px -20px rgba(45, 212, 191, 0.1);
             animation: containerEntry 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+            transition: all 0.3s ease;
+        }
+
+        /* Responsive adjustments - stays centered on all screens */
+        @media (max-width: 640px) {
+            .container {
+                padding: 32px 24px;
+                max-width: 95%;
+            }
+            body {
+                padding: 20px 16px;
+            }
+            .countdown-display {
+                font-size: 40px !important;
+            }
+            #timer-display {
+                font-size: 56px !important;
+            }
+            .task-item {
+                padding: 20px !important;
+            }
         }
 
         @keyframes containerEntry {
-            from { opacity: 0; transform: translateY(40px) scale(0.95); }
+            from { opacity: 0; transform: translateY(40px) scale(0.96); }
             to { opacity: 1; transform: translateY(0) scale(1); }
         }
 
@@ -108,44 +134,46 @@ Here is the HTML code that adds a simple JavaScript function to switch between t
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 48px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 16px;
         }
 
         h2 {
             color: var(--primary);
-            font-size: 28px;
+            font-size: 26px;
             font-weight: 900;
             display: flex;
             align-items: center;
-            gap: 16px;
-            letter-spacing: -2px;
+            gap: 12px;
+            letter-spacing: -1.5px;
             margin: 0;
         }
 
         h2 span {
             color: #020617;
-            font-size: 11px;
+            font-size: 10px;
             background: var(--gradient);
-            padding: 6px 18px;
+            padding: 5px 14px;
             border-radius: 50px;
             font-weight: 900;
             text-transform: uppercase;
-            letter-spacing: 2.5px;
+            letter-spacing: 2px;
             box-shadow: 0 10px 25px rgba(129, 140, 248, 0.4);
         }
 
         .header-actions {
             display: flex;
-            gap: 16px;
+            gap: 12px;
         }
 
         .icon-btn {
-            font-size: 22px;
-            padding: 12px;
-            border-radius: 22px;
+            font-size: 20px;
+            padding: 10px;
+            border-radius: 20px;
             background: rgba(255, 255, 255, 0.05);
-            width: 54px;
-            height: 54px;
+            width: 48px;
+            height: 48px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -158,7 +186,7 @@ Here is the HTML code that adds a simple JavaScript function to switch between t
         .icon-btn:hover {
             background: rgba(255, 255, 255, 0.12);
             color: var(--primary);
-            transform: translateY(-8px) rotate(15deg);
+            transform: translateY(-6px) rotate(8deg);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
             border-color: var(--primary);
         }
@@ -166,31 +194,31 @@ Here is the HTML code that adds a simple JavaScript function to switch between t
         /* Tabs */
         .tab-nav {
             display: flex;
-            gap: 14px;
-            margin-bottom: 48px;
+            gap: 12px;
+            margin-bottom: 40px;
             background: rgba(0, 0, 0, 0.4);
-            padding: 12px;
-            border-radius: 32px;
+            padding: 8px;
+            border-radius: 40px;
             border: 1px solid var(--border);
         }
 
         .tab-item {
             flex: 1;
-            padding: 18px;
+            padding: 14px 12px;
             text-align: center;
-            border-radius: 24px;
+            border-radius: 32px;
             font-weight: 800;
-            font-size: 16px;
+            font-size: 15px;
             color: var(--text-dim);
             background: transparent;
             cursor: pointer;
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .tab-item.active {
             background: var(--gradient);
             color: #020617;
-            box-shadow: 0 15px 35px rgba(45, 212, 191, 0.3);
+            box-shadow: 0 12px 28px rgba(45, 212, 191, 0.3);
         }
 
         /* Sections */
@@ -198,20 +226,20 @@ Here is the HTML code that adds a simple JavaScript function to switch between t
             font-size: 20px;
             font-weight: 900;
             color: var(--primary);
-            margin: 48px 0 28px 0;
+            margin: 32px 0 24px 0;
             display: flex;
             align-items: center;
-            gap: 16px;
-            letter-spacing: -1px;
+            gap: 12px;
+            letter-spacing: -0.5px;
         }
 
         .countdown-section {
             background: var(--gradient);
-            padding: 40px;
+            padding: 32px 24px;
             border-radius: 40px;
-            margin-bottom: 48px;
+            margin-bottom: 32px;
             text-align: center;
-            box-shadow: 0 30px 60px -15px rgba(129, 140, 248, 0.4);
+            box-shadow: 0 25px 50px -15px rgba(129, 140, 248, 0.4);
             position: relative;
             overflow: hidden;
         }
@@ -223,39 +251,39 @@ Here is the HTML code that adds a simple JavaScript function to switch between t
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.25) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
             pointer-events: none;
         }
 
         .countdown-label {
-            font-size: 16px;
+            font-size: 14px;
             font-weight: 800;
-            margin-bottom: 28px;
+            margin-bottom: 20px;
             color: #020617;
-            letter-spacing: 2px;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
-            opacity: 0.85;
+            opacity: 0.9;
         }
 
         .countdown-controls {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 36px;
+            gap: 28px;
             background: rgba(0, 0, 0, 0.2);
-            padding: 20px 40px;
-            border-radius: 32px;
+            padding: 16px 28px;
+            border-radius: 60px;
             backdrop-filter: blur(12px);
         }
 
         .countdown-btn {
-            width: 56px;
-            height: 56px;
-            border-radius: 22px;
+            width: 48px;
+            height: 48px;
+            border-radius: 28px;
             border: none;
             background: rgba(255, 255, 255, 0.3);
             color: #020617;
-            font-size: 32px;
+            font-size: 28px;
             font-weight: 900;
             cursor: pointer;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -265,17 +293,17 @@ Here is the HTML code that adds a simple JavaScript function to switch between t
         }
 
         .countdown-btn:hover {
-            background: rgba(255, 255, 255, 0.5);
-            transform: scale(1.25) rotate(10deg);
+            background: rgba(255, 255, 255, 0.6);
+            transform: scale(1.2) rotate(5deg);
         }
 
         .countdown-display {
-            font-size: 56px;
+            font-size: 48px;
             font-weight: 900;
             color: #020617;
-            min-width: 100px;
+            min-width: 80px;
             font-family: 'JetBrains Mono', monospace;
-            text-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
         }
 
         .task-counter {
@@ -283,14 +311,16 @@ Here is the HTML code that adds a simple JavaScript function to switch between t
             align-items: center;
             justify-content: space-between;
             background: rgba(0, 0, 0, 0.35);
-            padding: 24px 36px;
-            border-radius: 32px;
-            margin-bottom: 48px;
+            padding: 20px 28px;
+            border-radius: 28px;
+            margin-bottom: 32px;
             border: 1px solid var(--border);
+            flex-wrap: wrap;
+            gap: 16px;
         }
 
         .counter-label {
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 800;
             color: var(--text-dim);
         }
@@ -298,97 +328,93 @@ Here is the HTML code that adds a simple JavaScript function to switch between t
         .counter-controls {
             display: flex;
             align-items: center;
-            gap: 32px;
+            gap: 24px;
         }
 
         .counter-btn {
-            width: 54px;
-            height: 54px;
+            width: 48px;
+            height: 48px;
             border-radius: 20px;
             border: none;
             background: var(--primary);
             color: #020617;
-            font-size: 28px;
+            font-size: 24px;
             font-weight: 900;
             cursor: pointer;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 10px 20px rgba(45, 212, 191, 0.2);
+            box-shadow: 0 8px 18px rgba(45, 212, 191, 0.2);
         }
 
         .counter-btn:hover {
-            transform: scale(1.2) rotate(-10deg);
-            box-shadow: 0 15px 30px rgba(45, 212, 191, 0.3);
+            transform: scale(1.15) rotate(-5deg);
+            box-shadow: 0 12px 28px rgba(45, 212, 191, 0.3);
         }
 
         .counter-btn.minus {
             background: var(--accent);
             color: #020617;
-            box-shadow: 0 10px 20px rgba(244, 114, 182, 0.2);
-        }
-
-        .counter-btn.minus:hover {
-            box-shadow: 0 15px 30px rgba(244, 114, 182, 0.3);
+            box-shadow: 0 8px 18px rgba(244, 114, 182, 0.2);
         }
 
         .counter-number {
-            font-size: 32px;
+            font-size: 28px;
             font-weight: 900;
             color: var(--primary);
-            min-width: 44px;
+            min-width: 40px;
             text-align: center;
             font-family: 'JetBrains Mono', monospace;
         }
 
         .task-list {
-            margin: 40px 0;
-            max-height: 420px;
+            margin: 32px 0;
+            max-height: 400px;
             overflow-y: auto;
-            padding-right: 14px;
+            padding-right: 10px;
         }
 
         .task-list::-webkit-scrollbar {
-            width: 10px;
+            width: 8px;
         }
 
         .task-list::-webkit-scrollbar-thumb {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.2);
             border-radius: 20px;
         }
 
         .task-item {
             background: rgba(255, 255, 255, 0.04);
-            border-radius: 36px;
-            padding: 32px;
-            margin-bottom: 28px;
+            border-radius: 32px;
+            padding: 24px;
+            margin-bottom: 24px;
             border: 1px solid var(--border);
-            border-left: 12px solid var(--primary);
-            transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+            border-left: 8px solid var(--primary);
+            transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
         .task-item:hover {
-            transform: translateX(14px) scale(1.03);
+            transform: translateX(8px);
             background: rgba(255, 255, 255, 0.08);
             border-color: rgba(34, 211, 238, 0.5);
-            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
         }
 
         .task-link-input {
             width: 100%;
-            padding: 20px 28px;
+            padding: 16px 22px;
             border-radius: 24px;
             border: 1px solid var(--border);
             background: rgba(0, 0, 0, 0.35);
             color: var(--text);
-            font-size: 16px;
-            margin-bottom: 24px;
+            font-size: 14px;
+            margin-bottom: 18px;
             outline: none;
-            transition: all 0.4s;
+            transition: all 0.3s;
         }
 
         .task-link-input:focus {
             border-color: var(--primary);
-            background: rgba(0, 0, 0, 0.45);
-            box-shadow: 0 0 0 6px rgba(34, 211, 238, 0.2);
+            background: rgba(0, 0, 0, 0.5);
+            box-shadow: 0 0 0 4px rgba(34, 211, 238, 0.2);
         }
 
         .task-time-row {
@@ -396,253 +422,258 @@ Here is the HTML code that adds a simple JavaScript function to switch between t
             align-items: center;
             justify-content: space-between;
             background: rgba(0, 0, 0, 0.3);
-            padding: 18px 24px;
+            padding: 14px 20px;
             border-radius: 24px;
             border: 1px solid var(--border);
-            margin-bottom: 18px;
-            font-size: 16px;
+            font-size: 14px;
             font-weight: 800;
+            flex-wrap: wrap;
+            gap: 12px;
         }
 
         .task-time-controls {
             display: flex;
-            gap: 16px;
+            gap: 14px;
         }
 
         .task-time-btn {
-            width: 44px;
-            height: 44px;
+            width: 40px;
+            height: 40px;
             border-radius: 16px;
             border: none;
             background: rgba(255, 255, 255, 0.08);
             color: var(--success);
-            font-size: 26px;
+            font-size: 22px;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.4s;
+            transition: all 0.3s;
         }
 
         .task-time-btn:hover {
             background: var(--primary);
             color: #020617;
-            transform: scale(1.25);
+            transform: scale(1.2);
         }
 
         .button-row {
             display: flex;
-            gap: 24px;
-            margin: 48px 0;
+            gap: 20px;
+            margin: 40px 0;
         }
 
         .btn-start {
             flex: 3;
             background: var(--success);
             color: #020617;
-            font-size: 20px;
-            padding: 24px;
+            font-size: 18px;
+            padding: 20px;
             border: none;
             border-radius: 32px;
             font-weight: 900;
             cursor: pointer;
             text-transform: uppercase;
-            letter-spacing: 4px;
-            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 25px 50px -15px rgba(52, 211, 153, 0.5);
+            letter-spacing: 3px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 20px 40px -12px rgba(52, 211, 153, 0.5);
         }
 
         .btn-start:hover {
-            transform: translateY(-10px) scale(1.03);
-            box-shadow: 0 35px 70px -15px rgba(52, 211, 153, 0.6);
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: 0 28px 55px -12px rgba(52, 211, 153, 0.6);
         }
 
         .btn-stop {
             flex: 1;
             background: var(--warning);
             color: #020617;
-            font-size: 20px;
-            padding: 24px;
+            font-size: 18px;
+            padding: 20px;
             border: none;
             border-radius: 32px;
             cursor: pointer;
             font-weight: 900;
-            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 25px 50px -15px rgba(251, 113, 133, 0.4);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 20px 40px -12px rgba(251, 113, 133, 0.4);
         }
 
         .btn-stop:hover {
-            transform: translateY(-10px) scale(1.03);
+            transform: translateY(-6px) scale(1.02);
             background: #fb7185;
-            box-shadow: 0 35px 70px -15px rgba(251, 113, 133, 0.5);
         }
 
         #timer-container {
             text-align: center;
-            margin-top: 48px;
-            padding: 48px;
+            margin-top: 40px;
+            padding: 36px 24px;
             background: rgba(0, 0, 0, 0.5);
             border-radius: 48px;
-            border: 4px solid var(--secondary);
-            box-shadow: inset 0 6px 25px rgba(0, 0, 0, 0.6);
+            border: 3px solid var(--secondary);
+            box-shadow: inset 0 4px 18px rgba(0, 0, 0, 0.5);
             animation: glowBorder 3s infinite alternate;
         }
 
         @keyframes glowBorder {
-            from { border-color: var(--secondary); box-shadow: 0 0 30px rgba(129, 140, 248, 0.2); }
-            to { border-color: var(--primary); box-shadow: 0 0 60px rgba(45, 212, 191, 0.4); }
+            from { border-color: var(--secondary); box-shadow: 0 0 20px rgba(129, 140, 248, 0.2); }
+            to { border-color: var(--primary); box-shadow: 0 0 45px rgba(45, 212, 191, 0.4); }
         }
 
         #timer-display {
-            font-size: 84px;
+            font-size: 72px;
             font-family: 'JetBrains Mono', monospace;
             color: var(--primary);
             font-weight: 900;
-            letter-spacing: -4px;
-            text-shadow: 0 0 40px rgba(45, 212, 191, 0.5);
+            letter-spacing: -3px;
+            text-shadow: 0 0 30px rgba(45, 212, 191, 0.5);
         }
 
         #current-task-name {
-            font-size: 18px;
+            font-size: 16px;
             color: var(--success);
-            margin: 20px 0;
+            margin: 16px 0;
             font-weight: 900;
             text-transform: uppercase;
-            letter-spacing: 2.5px;
+            letter-spacing: 2px;
+            word-break: break-word;
         }
 
         .notice {
-            font-size: 14px;
+            font-size: 12px;
             color: var(--secondary);
-            padding: 24px;
+            padding: 16px;
             background: rgba(167, 139, 250, 0.12);
             border-radius: 24px;
             font-weight: 800;
-            line-height: 1.7;
             border: 1px solid rgba(167, 139, 250, 0.2);
         }
 
         /* Guardian */
         .input-group {
             display: flex;
-            gap: 20px;
-            margin-bottom: 40px;
+            gap: 16px;
+            margin-bottom: 32px;
         }
 
         .input-field {
             flex: 1;
-            padding: 22px;
+            padding: 18px 20px;
             background: rgba(0, 0, 0, 0.35);
             border: 1px solid var(--border);
             border-radius: 28px;
             color: var(--text);
-            font-size: 17px;
+            font-size: 15px;
             outline: none;
-            transition: all 0.4s;
+            transition: all 0.3s;
         }
 
         .input-field:focus {
             border-color: var(--primary);
-            background: rgba(0, 0, 0, 0.45);
-            box-shadow: 0 0 0 6px rgba(34, 211, 238, 0.2);
+            background: rgba(0, 0, 0, 0.5);
+            box-shadow: 0 0 0 4px rgba(34, 211, 238, 0.2);
         }
 
         .site-list {
-            max-height: 320px;
+            max-height: 280px;
             overflow-y: auto;
-            margin: 40px 0;
+            margin: 32px 0;
         }
 
         .site-item {
             background: rgba(255, 255, 255, 0.04);
-            padding: 24px 32px;
-            margin-bottom: 20px;
-            border-radius: 32px;
+            padding: 18px 24px;
+            margin-bottom: 16px;
+            border-radius: 28px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             border: 1px solid var(--border);
-            border-left: 10px solid var(--primary);
-            font-size: 17px;
-            transition: all 0.4s;
+            border-left: 6px solid var(--primary);
+            font-size: 15px;
+            transition: all 0.3s;
         }
 
         .site-item:hover {
             border-color: var(--primary);
-            transform: translateX(12px);
+            transform: translateX(6px);
             background: rgba(255, 255, 255, 0.06);
         }
 
         .delete-btn {
             color: var(--accent);
-            font-size: 30px;
+            font-size: 26px;
             cursor: pointer;
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: transform 0.3s;
         }
 
         .delete-btn:hover {
-            transform: scale(1.5) rotate(25deg);
+            transform: scale(1.3) rotate(15deg);
         }
 
         .link-section {
             background: rgba(0, 0, 0, 0.4);
-            padding: 40px;
-            border-radius: 40px;
-            margin: 40px 0;
-            border: 3px dashed rgba(74, 222, 128, 0.5);
+            padding: 28px;
+            border-radius: 36px;
+            margin: 32px 0;
+            border: 2px dashed rgba(74, 222, 128, 0.5);
         }
 
         .link-display {
             word-break: break-all;
-            font-size: 15px;
+            font-size: 13px;
             color: var(--success);
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             background: rgba(0, 0, 0, 0.5);
-            padding: 24px;
+            padding: 18px;
             border-radius: 24px;
             font-family: 'JetBrains Mono', monospace;
             border: 1px solid var(--border);
-            line-height: 1.8;
+            line-height: 1.6;
         }
 
         /* Footer */
         .footer {
-            margin-top: 80px;
-            padding-top: 48px;
-            border-top: 1px dashed rgba(255, 255, 255, 0.2);
+            margin-top: 60px;
+            padding-top: 36px;
+            border-top: 1px dashed rgba(255, 255, 255, 0.15);
             text-align: center;
         }
 
         .footer p {
-            font-size: 15px;
+            font-size: 12px;
             color: var(--text-dim);
-            margin-bottom: 18px;
-            line-height: 1.9;
+            margin-bottom: 14px;
+            line-height: 1.6;
         }
 
         #linkedin-link {
             display: inline-block;
-            font-size: 14px;
+            font-size: 12px;
             color: var(--primary);
             text-decoration: none;
             background: rgba(34, 211, 238, 0.12);
-            padding: 16px 36px;
-            border-radius: 36px;
+            padding: 12px 28px;
+            border-radius: 32px;
             border: 1px solid rgba(34, 211, 238, 0.3);
-            margin-top: 20px;
-            font-weight: 900;
-            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            margin-top: 16px;
+            font-weight: 800;
+            transition: all 0.4s;
         }
 
         #linkedin-link:hover {
             background: var(--primary);
             color: #020617;
-            transform: translateY(-8px) scale(1.1);
-            box-shadow: 0 20px 40px rgba(45, 212, 191, 0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(45, 212, 191, 0.3);
         }
 
         .hidden {
             display: none;
+        }
+        
+        /* Additional smoothness */
+        button {
+            cursor: pointer;
         }
     </style>
 </head>
@@ -650,7 +681,7 @@ Here is the HTML code that adds a simple JavaScript function to switch between t
     <div class="container">
         <!-- Header -->
         <div class="header">
-            <div style="display: flex; align-items: center; gap: 10px;">
+            <div style="display: flex; align-items: center; gap: 8px;">
                 <h2>🚀 FOCUS PILOT <span>PRO</span></h2>
                 <button id="resetBtn" class="icon-btn" title="Clear All 💨">🔄</button>
             </div>
@@ -668,7 +699,7 @@ Here is the HTML code that adds a simple JavaScript function to switch between t
         <!-- ========== Mission Interface ========== -->
         <div id="missionSection">
             <div class="countdown-section">
-                <div class="countdown-label">Countdown starts when? ⏳🤔</div>
+                <div class="countdown-label">⏳ Pre-Mission Countdown (min)</div>
                 <div class="countdown-controls">
                     <button id="minusCountdownBtn" class="countdown-btn">−</button>
                     <span id="countdownDisplay" class="countdown-display">1</span>
@@ -677,7 +708,7 @@ Here is the HTML code that adds a simple JavaScript function to switch between t
             </div>
 
             <div class="task-counter">
-                <span class="counter-label">Total Tasks 📋</span>
+                <span class="counter-label">📋 Total Tasks</span>
                 <div class="counter-controls">
                     <button id="minusTaskBtn" class="counter-btn minus">−</button>
                     <span id="taskCountDisplay" class="counter-number">2</span>
@@ -686,19 +717,17 @@ Here is the HTML code that adds a simple JavaScript function to switch between t
             </div>
 
             <!-- Task List -->
-            <div id="taskList" class="task-list">
-                <!-- Tasks will be injected here by script -->
-            </div>
+            <div id="taskList" class="task-list"></div>
 
             <div class="button-row">
                 <button id="startMissionBtn" class="btn-start">🚀 START MISSION</button>
-                <button id="stopMissionBtn" class="btn-stop">⏹️</button>
+                <button id="stopMissionBtn" class="btn-stop">⏹️ STOP</button>
             </div>
 
             <div id="timer-container">
                 <div id="timer-display">00:00</div>
-                <div id="current-task-name">All set to start? ⏳✅</div>
-                <div class="notice">Loud alarm for the final 10 seconds! 🔊🔥</div>
+                <div id="current-task-name">✨ Ready for liftoff ✨</div>
+                <div class="notice">🔊 Loud alert in final 10 seconds! Stay locked in.</div>
             </div>
         </div>
 
@@ -707,29 +736,25 @@ Here is the HTML code that adds a simple JavaScript function to switch between t
             <div class="section-title">🛡️ Guardian Control</div>
 
             <div class="input-group">
-                <input type="text" id="guardianInput" class="input-field" placeholder="Site name (e.g. facebook.com)">
-                <button id="addBtn" style="background: var(--primary); color: var(--bg); border: none; padding: 0 20px; border-radius: 12px; cursor: pointer; font-weight: 900;">Add</button>
+                <input type="text" id="guardianInput" class="input-field" placeholder="Block site (e.g., instagram.com)">
+                <button id="addBtn" style="background: var(--primary); color: #020617; border: none; padding: 0 20px; border-radius: 28px; cursor: pointer; font-weight: 900; font-size: 14px;">➕ ADD</button>
             </div>
 
-            <div id="siteList" class="site-list">
-                <!-- Sites will be injected here by script -->
+            <div id="siteList" class="site-list"></div>
+
+            <div id="remoteIdSection" style="background: rgba(0, 0, 0, 0.3); padding: 20px; border-radius: 32px; border: 1px solid var(--border); margin-bottom: 28px; text-align: center;">
+                <p style="font-size: 12px; color: var(--text-dim); margin-bottom: 10px; font-weight: 800;">🔑 Your Remote Guardian ID</p>
+                <div id="remoteIdDisplay" style="font-family: 'JetBrains Mono', monospace; font-size: 18px; color: var(--primary); font-weight: 900; background: rgba(0,0,0,0.2); padding: 10px; border-radius: 20px;">Loading...</div>
+                <p style="font-size: 10px; margin-top: 10px; opacity: 0.7;">Share this ID for supervision</p>
             </div>
 
-            <div id="remoteIdSection" style="background: rgba(0, 0, 0, 0.3); padding: 24px; border-radius: 32px; border: 1px solid var(--border); margin-bottom: 32px; text-align: center;">
-                <p style="font-size: 14px; color: var(--text-dim); margin-bottom: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">Your Remote ID 🆔</p>
-                <div id="remoteIdDisplay" style="font-family: 'JetBrains Mono', monospace; font-size: 22px; color: var(--primary); font-weight: 900; letter-spacing: 1px; background: rgba(0,0,0,0.2); padding: 12px; border-radius: 16px;">Loading...</div>
-                <p style="font-size: 11px; color: var(--text-dim); margin-top: 12px; opacity: 0.7;">Share this ID or the link below with your Guardian.</p>
-            </div>
-
-            <button id="generateLinkBtn" style="background: var(--success); color: var(--bg); width: 100%; padding: 14px; border: none; border-radius: 16px; font-weight: 900; margin: 15px 0; cursor: pointer; text-transform: uppercase; letter-spacing: 1px;">
-                🔗 Create Guardian Link
+            <button id="generateLinkBtn" style="background: var(--success); color: #020617; width: 100%; padding: 14px; border: none; border-radius: 28px; font-weight: 900; margin: 12px 0; cursor: pointer;">
+                🔗 Generate Guardian Invite Link
             </button>
 
             <div class="link-section">
-                <div id="linkDisplay" class="link-display">
-                    ...
-                </div>
-                <button id="copyLinkBtn" style="background: rgba(255, 255, 255, 0.05); color: white; width: 100%; padding: 12px; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; cursor: pointer; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">
+                <div id="linkDisplay" class="link-display">✨ Click generate to create link</div>
+                <button id="copyLinkBtn" style="background: rgba(255,255,255,0.05); color: white; width: 100%; padding: 12px; border: 1px solid rgba(255,255,255,0.1); border-radius: 28px; cursor: pointer; font-weight: 700;">
                     📋 Copy Link
                 </button>
             </div>
@@ -737,25 +762,19 @@ Here is the HTML code that adds a simple JavaScript function to switch between t
 
         <!-- Footer -->
         <div class="footer">
-            <p>A gift for you from <b>Chowhodditola, Chapainawabganj, Bangladesh.</b> 🎁</p>
-            <p>This tool will be updated regularly and all features will remain <b>FREE</b> forever.</p>
-            <a href="https://www.linkedin.com/in/nahid-mahmud-py" target="_blank" id="linkedin-link">Connect for Feedback 🚀</a>
+            <p>🎁 From <b>Chowhodditola, Chapainawabganj, Bangladesh</b> — Made with focus</p>
+            <p>⚡ All features remain <b>FREE</b> forever. Stay locked.</p>
+            <a href="https://www.linkedin.com/in/nahid-mahmud-py" target="_blank" id="linkedin-link">🤝 Connect for Feedback</a>
         </div>
     </div>
     <script>
-        // ========================
-        // FOCUS PILOT PRO - FULL INTERACTIVE SCRIPT
-        // Complete Mission & Guardian functionality with smooth tab switching
-        // ========================
-
         (function(){
-            // --- DOM Elements ---
+            // DOM Elements
             const missionSection = document.getElementById('missionSection');
             const guardianSection = document.getElementById('guardianSection');
             const missionTab = document.getElementById('missionTab');
             const guardianTab = document.getElementById('guardianTab');
             
-            // Mission Elements
             const countdownDisplaySpan = document.getElementById('countdownDisplay');
             const minusCountdown = document.getElementById('minusCountdownBtn');
             const plusCountdown = document.getElementById('plusCountdownBtn');
@@ -770,7 +789,6 @@ Here is the HTML code that adds a simple JavaScript function to switch between t
             const resetBtn = document.getElementById('resetBtn');
             const settingsBtn = document.getElementById('settingsBtn');
             
-            // Guardian Elements
             const guardianInput = document.getElementById('guardianInput');
             const addBtn = document.getElementById('addBtn');
             const siteListDiv = document.getElementById('siteList');
@@ -779,101 +797,48 @@ Here is the HTML code that adds a simple JavaScript function to switch between t
             const linkDisplayDiv = document.getElementById('linkDisplay');
             const copyLinkBtn = document.getElementById('copyLinkBtn');
             
-            // --- State Variables ---
-            let countdownMinutes = 1;        // initial countdown before each task
-            let totalTasksCount = 2;          // number of tasks
-            let tasks = [];                   // array of { url: string, duration: number }
+            let countdownMinutes = 1;
+            let totalTasksCount = 2;
+            let tasks = [];
             let activeMission = false;
             let currentTaskIndex = 0;
             let timerInterval = null;
             let remainingSeconds = 0;
-            let isCountdownPhase = true;       // countdown before task starts?
+            let isCountdownPhase = true;
             let countdownRemaining = 0;
             
-            // Guardian data
-            let blockedSites = [];  // list of site names
+            let blockedSites = [];
             let remoteId = 'FP-' + Math.random().toString(36).substring(2, 10).toUpperCase();
             
-            // --- Helper Functions ---
-            function updateCountdownUI() {
-                countdownDisplaySpan.textContent = countdownMinutes;
-            }
-            
-            function updateTaskCounterUI() {
-                taskCountDisplay.textContent = totalTasksCount;
-                renderTasks();
-            }
+            function updateCountdownUI() { countdownDisplaySpan.textContent = countdownMinutes; }
+            function updateTaskCounterUI() { taskCountDisplay.textContent = totalTasksCount; renderTasks(); }
             
             function renderTasks() {
-                // adjust tasks array length
-                while(tasks.length < totalTasksCount) {
-                    tasks.push({ url: '', duration: 5 });
-                }
-                while(tasks.length > totalTasksCount) {
-                    tasks.pop();
-                }
-                // fill defaults if empty strings
+                while(tasks.length < totalTasksCount) tasks.push({ url: '', duration: 5 });
+                while(tasks.length > totalTasksCount) tasks.pop();
                 for(let i=0; i<tasks.length; i++){
                     if(tasks[i].url === undefined) tasks[i].url = '';
                     if(!tasks[i].duration || tasks[i].duration <= 0) tasks[i].duration = 5;
                 }
-                
                 taskListContainer.innerHTML = '';
                 for(let i=0; i<tasks.length; i++){
                     const task = tasks[i];
                     const taskDiv = document.createElement('div');
                     taskDiv.className = 'task-item';
-                    taskDiv.setAttribute('data-index', i);
-                    
-                    // Link Input
                     const linkInput = document.createElement('input');
                     linkInput.type = 'text';
                     linkInput.className = 'task-link-input';
-                    linkInput.placeholder = `Task ${i+1} URL (e.g., https://example.com)`;
+                    linkInput.placeholder = `🔗 Task ${i+1} URL (e.g., https://github.com)`;
                     linkInput.value = task.url;
-                    linkInput.addEventListener('input', (e) => {
-                        tasks[i].url = e.target.value;
-                    });
-                    
-                    // Time control row
+                    linkInput.addEventListener('input', (e) => { tasks[i].url = e.target.value; });
                     const timeRow = document.createElement('div');
                     timeRow.className = 'task-time-row';
-                    const timeLabel = document.createElement('span');
-                    timeLabel.textContent = `⏱️ Duration (min)`;
-                    const controlsDiv = document.createElement('div');
-                    controlsDiv.className = 'task-time-controls';
-                    const minusTime = document.createElement('button');
-                    minusTime.textContent = '−';
-                    minusTime.className = 'task-time-btn';
-                    const timeValueSpan = document.createElement('span');
-                    timeValueSpan.style.fontSize = '24px';
-                    timeValueSpan.style.fontWeight = '900';
-                    timeValueSpan.style.minWidth = '50px';
-                    timeValueSpan.style.textAlign = 'center';
-                    timeValueSpan.textContent = task.duration;
-                    const plusTime = document.createElement('button');
-                    plusTime.textContent = '+';
-                    plusTime.className = 'task-time-btn';
-                    
-                    minusTime.addEventListener('click', () => {
-                        let val = tasks[i].duration;
-                        if(val > 1) val--;
-                        tasks[i].duration = val;
-                        timeValueSpan.textContent = val;
-                    });
-                    plusTime.addEventListener('click', () => {
-                        let val = tasks[i].duration;
-                        val++;
-                        tasks[i].duration = val;
-                        timeValueSpan.textContent = val;
-                    });
-                    
-                    controlsDiv.appendChild(minusTime);
-                    controlsDiv.appendChild(timeValueSpan);
-                    controlsDiv.appendChild(plusTime);
-                    timeRow.appendChild(timeLabel);
-                    timeRow.appendChild(controlsDiv);
-                    
+                    timeRow.innerHTML = `<span>⏱️ Duration (minutes)</span><div class="task-time-controls"><button class="task-time-btn minus-time">−</button><span style="font-size:22px; font-weight:900; min-width:45px; text-align:center;">${task.duration}</span><button class="task-time-btn plus-time">+</button></div>`;
+                    const minusTime = timeRow.querySelector('.minus-time');
+                    const plusTime = timeRow.querySelector('.plus-time');
+                    const timeSpan = timeRow.querySelector('span:nth-child(2)');
+                    minusTime.addEventListener('click', () => { if(tasks[i].duration > 1) tasks[i].duration--; timeSpan.textContent = tasks[i].duration; });
+                    plusTime.addEventListener('click', () => { tasks[i].duration++; timeSpan.textContent = tasks[i].duration; });
                     taskDiv.appendChild(linkInput);
                     taskDiv.appendChild(timeRow);
                     taskListContainer.appendChild(taskDiv);
@@ -881,260 +846,118 @@ Here is the HTML code that adds a simple JavaScript function to switch between t
             }
             
             function stopMissionInternal() {
-                if(timerInterval){
-                    clearInterval(timerInterval);
-                    timerInterval = null;
-                }
+                if(timerInterval) clearInterval(timerInterval);
                 activeMission = false;
-                currentTaskNameSpan.textContent = "Mission Stopped ❌";
+                currentTaskNameSpan.textContent = "⏹️ Mission aborted";
                 timerDisplay.textContent = "00:00";
                 isCountdownPhase = true;
-                // Enable start button, disable stop style but fine
             }
             
-            function formatTime(seconds){
-                const mins = Math.floor(seconds / 60);
-                const secs = seconds % 60;
-                return `${mins.toString().padStart(2,'0')}:${secs.toString().padStart(2,'0')}`;
-            }
+            function formatTime(sec){ return `${Math.floor(sec/60).toString().padStart(2,'0')}:${(sec%60).toString().padStart(2,'0')}`; }
             
             function startCountdownForTask(index){
-                if(index >= tasks.length){
-                    // mission complete
-                    stopMissionInternal();
-                    currentTaskNameSpan.textContent = "🎉 MISSION COMPLETE! 🎉";
-                    timerDisplay.textContent = "00:00";
-                    return;
-                }
+                if(index >= tasks.length){ stopMissionInternal(); currentTaskNameSpan.textContent = "🏆 MISSION ACCOMPLISHED! 🏆"; timerDisplay.textContent = "00:00"; return; }
                 const task = tasks[index];
-                if(!task.url.trim()){
-                    currentTaskNameSpan.textContent = `⚠️ Task ${index+1} has no URL! Skipping...`;
-                    setTimeout(() => startCountdownForTask(index+1), 1500);
-                    return;
-                }
+                if(!task.url.trim()){ currentTaskNameSpan.textContent = `⚠️ Task ${index+1} missing URL, skipping`; setTimeout(() => startCountdownForTask(index+1), 1200); return; }
                 isCountdownPhase = true;
                 countdownRemaining = countdownMinutes * 60;
                 timerDisplay.textContent = formatTime(countdownRemaining);
-                currentTaskNameSpan.textContent = `🔜 Countdown: ${countdownMinutes} min until "${task.url}"`;
+                currentTaskNameSpan.textContent = `⏰ Countdown: ${countdownMinutes} min until "${task.url.substring(0,40)}"`;
                 if(timerInterval) clearInterval(timerInterval);
                 timerInterval = setInterval(() => {
                     if(countdownRemaining <= 1){
                         clearInterval(timerInterval);
-                        // start actual task timer
                         startTaskTimer(index);
                     } else {
                         countdownRemaining--;
                         timerDisplay.textContent = formatTime(countdownRemaining);
-                        // loud alarm effect only for final 10 secs? optional but we give visual flair
-                        if(countdownRemaining <= 10 && countdownRemaining > 0){
-                            timerDisplay.style.textShadow = "0 0 15px #ff4d4d";
-                        } else {
-                            timerDisplay.style.textShadow = "0 0 40px rgba(45, 212, 191, 0.5)";
-                        }
+                        if(countdownRemaining <= 10) timerDisplay.style.textShadow = "0 0 12px #ff4d4d";
+                        else timerDisplay.style.textShadow = "0 0 30px rgba(45,212,191,0.5)";
                     }
                 }, 1000);
             }
             
             function startTaskTimer(index){
                 const task = tasks[index];
-                const durationSec = task.duration * 60;
-                remainingSeconds = durationSec;
+                let remaining = task.duration * 60;
                 isCountdownPhase = false;
-                timerDisplay.textContent = formatTime(remainingSeconds);
-                currentTaskNameSpan.textContent = `🎯 WORKING: ${task.url} | ${task.duration} min`;
+                timerDisplay.textContent = formatTime(remaining);
+                currentTaskNameSpan.textContent = `🎯 FOCUS: ${task.url.substring(0,45)} | ${task.duration} min`;
                 if(timerInterval) clearInterval(timerInterval);
                 timerInterval = setInterval(() => {
-                    if(remainingSeconds <= 0){
+                    if(remaining <= 0){
                         clearInterval(timerInterval);
-                        // move to next task's countdown
-                        currentTaskIndex = index+1;
-                        if(currentTaskIndex < tasks.length){
-                            startCountdownForTask(currentTaskIndex);
-                        } else {
-                            // all done
-                            stopMissionInternal();
-                            currentTaskNameSpan.textContent = "🏆 Amazing! All tasks done! 🏆";
-                            timerDisplay.textContent = "00:00";
-                        }
+                        startCountdownForTask(index+1);
                     } else {
-                        remainingSeconds--;
-                        timerDisplay.textContent = formatTime(remainingSeconds);
-                        if(remainingSeconds <= 10 && remainingSeconds > 0){
-                            timerDisplay.style.textShadow = "0 0 15px #ff4d4d";
-                            if(remainingSeconds === 3){
-                                // simulate beep feel
-                            }
-                        } else {
-                            timerDisplay.style.textShadow = "0 0 40px rgba(45, 212, 191, 0.5)";
-                        }
+                        remaining--;
+                        timerDisplay.textContent = formatTime(remaining);
+                        if(remaining <= 10 && remaining > 0) timerDisplay.style.textShadow = "0 0 12px #ff4d4d";
+                        else timerDisplay.style.textShadow = "0 0 30px rgba(45,212,191,0.5)";
                     }
                 }, 1000);
             }
             
             function startMission(){
                 if(activeMission) return;
-                if(tasks.length === 0) {
-                    alert("No tasks defined. Adjust task count and fill URLs.");
-                    return;
-                }
-                let hasValid = false;
-                for(let t of tasks){
-                    if(t.url && t.url.trim() !== "") hasValid = true;
-                }
-                if(!hasValid){
-                    alert("Please fill at least one task URL.");
-                    return;
-                }
-                stopMissionInternal(); // clear any prior
+                if(tasks.length === 0 || !tasks.some(t=>t.url.trim())){ alert("Please fill at least one task URL"); return; }
+                stopMissionInternal();
                 activeMission = true;
                 currentTaskIndex = 0;
                 startCountdownForTask(0);
             }
             
-            // Guardian: site management
             function renderSiteList(){
                 siteListDiv.innerHTML = '';
                 blockedSites.forEach((site, idx) => {
-                    const siteItem = document.createElement('div');
-                    siteItem.className = 'site-item';
-                    siteItem.innerHTML = `<span>🔒 ${escapeHtml(site)}</span><span class="delete-btn" data-idx="${idx}">🗑️</span>`;
-                    siteListDiv.appendChild(siteItem);
+                    const div = document.createElement('div');
+                    div.className = 'site-item';
+                    div.innerHTML = `<span>🛡️ ${escapeHtml(site)}</span><span class="delete-btn" data-idx="${idx}">🗑️</span>`;
+                    siteListDiv.appendChild(div);
                 });
                 document.querySelectorAll('.delete-btn').forEach(btn => {
-                    btn.addEventListener('click', (e) => {
-                        const idx = parseInt(btn.getAttribute('data-idx'));
-                        if(!isNaN(idx)) blockedSites.splice(idx,1);
-                        renderSiteList();
-                        saveGuardianToLocal();
-                    });
+                    btn.addEventListener('click', (e) => { const i = parseInt(btn.getAttribute('data-idx')); if(!isNaN(i)) blockedSites.splice(i,1); renderSiteList(); saveGuardian(); });
                 });
-                saveGuardianToLocal();
+                saveGuardian();
             }
             
-            function addSite(){
-                let val = guardianInput.value.trim();
-                if(val === "") return;
-                if(!blockedSites.includes(val)) blockedSites.push(val);
-                guardianInput.value = '';
-                renderSiteList();
-            }
+            function addSite(){ let val = guardianInput.value.trim(); if(val && !blockedSites.includes(val)) blockedSites.push(val); guardianInput.value = ''; renderSiteList(); }
+            function saveGuardian(){ localStorage.setItem('fp_sites', JSON.stringify(blockedSites)); localStorage.setItem('fp_remote', remoteId); }
+            function loadGuardian(){ const stored = localStorage.getItem('fp_sites'); if(stored) try{ blockedSites = JSON.parse(stored); }catch(e){} const rid = localStorage.getItem('fp_remote'); if(rid) remoteId = rid; remoteIdDisplay.textContent = remoteId; renderSiteList(); }
+            function generateLink(){ linkDisplayDiv.textContent = `${window.location.href.split('?')[0]}?guardian=${remoteId}`; }
+            function copyLink(){ if(linkDisplayDiv.textContent && linkDisplayDiv.textContent !== '✨ Click generate to create link'){ navigator.clipboard.writeText(linkDisplayDiv.textContent); alert("✅ Guardian link copied!"); } else alert("Generate link first"); }
+            function resetAll(){ if(confirm("Reset all tasks & guardian?")){ countdownMinutes=1; totalTasksCount=2; tasks=[]; updateCountdownUI(); updateTaskCounterUI(); blockedSites=[]; renderSiteList(); saveGuardian(); stopMissionInternal(); currentTaskNameSpan.textContent="✨ Ready for liftoff ✨"; timerDisplay.textContent="00:00"; } }
+            function escapeHtml(s){ return s.replace(/[&<>]/g, function(m){ if(m==='&') return '&amp;'; if(m==='<') return '&lt;'; if(m==='>') return '&gt;'; return m;}); }
             
-            function saveGuardianToLocal(){
-                localStorage.setItem('fp_blockedSites', JSON.stringify(blockedSites));
-                localStorage.setItem('fp_remoteId', remoteId);
-            }
-            
-            function loadGuardianData(){
-                const stored = localStorage.getItem('fp_blockedSites');
-                if(stored){
-                    try{
-                        blockedSites = JSON.parse(stored);
-                    } catch(e){}
-                }
-                const storedId = localStorage.getItem('fp_remoteId');
-                if(storedId) remoteId = storedId;
-                remoteIdDisplay.textContent = remoteId;
-                renderSiteList();
-            }
-            
-            function generateGuardianLink(){
-                const baseUrl = window.location.href.split('?')[0];
-                const guardianLink = `${baseUrl}?guardian=${remoteId}`;
-                linkDisplayDiv.textContent = guardianLink;
-            }
-            
-            function copyLink(){
-                const text = linkDisplayDiv.textContent;
-                if(text && text !== '...'){
-                    navigator.clipboard.writeText(text).then(() => {
-                        alert("Guardian link copied!");
-                    }).catch(()=>alert("Press Ctrl+C"));
+            function setTab(tab){
+                if(tab === 'mission'){
+                    missionTab.classList.add('active'); guardianTab.classList.remove('active');
+                    missionSection.classList.remove('hidden'); guardianSection.classList.add('hidden');
                 } else {
-                    alert("Generate a link first.");
+                    guardianTab.classList.add('active'); missionTab.classList.remove('active');
+                    guardianSection.classList.remove('hidden'); missionSection.classList.add('hidden');
+                    renderSiteList(); remoteIdDisplay.textContent = remoteId;
                 }
             }
             
-            function resetAllData(){
-                if(confirm("Reset all tasks, countdown and guardian sites?")){
-                    countdownMinutes = 1;
-                    totalTasksCount = 2;
-                    tasks = [];
-                    updateCountdownUI();
-                    updateTaskCounterUI();
-                    blockedSites = [];
-                    renderSiteList();
-                    saveGuardianToLocal();
-                    stopMissionInternal();
-                    currentTaskNameSpan.textContent = "All set to start? ⏳✅";
-                    timerDisplay.textContent = "00:00";
-                }
-            }
-            
-            function escapeHtml(str){
-                return str.replace(/[&<>]/g, function(m){
-                    if(m === '&') return '&amp;';
-                    if(m === '<') return '&lt;';
-                    if(m === '>') return '&gt;';
-                    return m;
-                });
-            }
-            
-            // --- Tab Switching Logic (MAIN FOCUS: "gerden mode e click korle sei interface e jawya jai") ---
-            function setActiveTab(tabName){
-                if(tabName === 'mission'){
-                    missionTab.classList.add('active');
-                    guardianTab.classList.remove('active');
-                    missionSection.classList.remove('hidden');
-                    guardianSection.classList.add('hidden');
-                } else if(tabName === 'guardian'){
-                    guardianTab.classList.add('active');
-                    missionTab.classList.remove('active');
-                    guardianSection.classList.remove('hidden');
-                    missionSection.classList.add('hidden');
-                    // refresh guardian display
-                    renderSiteList();
-                    remoteIdDisplay.textContent = remoteId;
-                }
-            }
-            
-            // --- Event Listeners ---
-            missionTab.addEventListener('click', () => setActiveTab('mission'));
-            guardianTab.addEventListener('click', () => setActiveTab('guardian'));
-            
-            // Countdown controls
-            minusCountdown.addEventListener('click', () => { if(countdownMinutes > 1) countdownMinutes--; updateCountdownUI(); });
-            plusCountdown.addEventListener('click', () => { countdownMinutes++; updateCountdownUI(); });
-            
-            // Task count controls
-            minusTaskBtn.addEventListener('click', () => { if(totalTasksCount > 1) totalTasksCount--; updateTaskCounterUI(); });
-            plusTaskBtn.addEventListener('click', () => { totalTasksCount++; updateTaskCounterUI(); });
-            
+            missionTab.addEventListener('click', ()=>setTab('mission'));
+            guardianTab.addEventListener('click', ()=>setTab('guardian'));
+            minusCountdown.addEventListener('click',()=>{ if(countdownMinutes>1) countdownMinutes--; updateCountdownUI(); });
+            plusCountdown.addEventListener('click',()=>{ countdownMinutes++; updateCountdownUI(); });
+            minusTaskBtn.addEventListener('click',()=>{ if(totalTasksCount>1) totalTasksCount--; updateTaskCounterUI(); });
+            plusTaskBtn.addEventListener('click',()=>{ totalTasksCount++; updateTaskCounterUI(); });
             startMissionBtn.addEventListener('click', startMission);
             stopMissionBtn.addEventListener('click', stopMissionInternal);
-            
-            resetBtn.addEventListener('click', resetAllData);
-            settingsBtn.addEventListener('click', () => {
-                alert("⚡ Focus Pilot Pro Settings\n\n- Countdown before each task.\n- Tasks & durations fully editable.\n- Guardian blocks websites (simulated).\n- All data saved locally.\n\nStay focused!");
-            });
-            
+            resetBtn.addEventListener('click', resetAll);
+            settingsBtn.addEventListener('click',()=>alert("⚡ Focus Pilot Pro\n• Custom countdown per task\n• Editable durations\n• Guardian site blocker (simulated)\n• All data saved locally\nStay focused! 🚀"));
             addBtn.addEventListener('click', addSite);
-            guardianInput.addEventListener('keypress', (e) => { if(e.key === 'Enter') addSite(); });
-            generateLinkBtn.addEventListener('click', generateGuardianLink);
+            guardianInput.addEventListener('keypress',(e)=>{ if(e.key==='Enter') addSite(); });
+            generateLinkBtn.addEventListener('click', generateLink);
             copyLinkBtn.addEventListener('click', copyLink);
             
-            // initial load tasks
             updateTaskCounterUI();
-            loadGuardianData();
-            generateGuardianLink();
-            
-            // small extra: check for URL param for guardian (just demo)
-            const urlParams = new URLSearchParams(window.location.search);
-            if(urlParams.has('guardian')){
-                setTimeout(() => {
-                    alert(`🔐 Guardian Mode Activated! Remote ID: ${urlParams.get('guardian')}\nYou are now supervising.`);
-                    setActiveTab('guardian');
-                }, 100);
-            }
+            loadGuardian();
+            generateLink();
+            if(window.location.search.includes('guardian')) setTimeout(()=>{ alert("🔐 Guardian supervision mode active"); setTab('guardian'); }, 100);
         })();
     </script>
 </body>
